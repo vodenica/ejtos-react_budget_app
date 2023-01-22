@@ -1,27 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
-const Currency = () => {
-  const {dispatch } = useContext(AppContext);
+const Currency = (props) => {
 
-	const changeCurrency = (val)=>{
-			dispatch({
-				type: 'CHG_CURRENCY',
-				payload: val,
-			})
-	}
+  const [ currency, setCurrency ] = useState('');
+  const { dispatch } = useContext(AppContext);
+
+  const updateCurrency = (event) => {
+
+    dispatch({
+          type: 'CHG_CURRENCY',
+          payload: event.target.value,
+        });
+    setCurrency(event.target.value);
+    return;
+  }
 
   return (
-		<div className='btn btn-success'> Currency ({
-      <select name="currency" id="currency" style={{background:'green',color:'white'}} onChange={(event)=>changeCurrency(event.target.value)}>
-        <option value="£">£ Pounds</option>
-        <option value="$">$ Dollar</option>
-        <option value="€">€ Euro</option>
-        <option value="₹">MOP Pataca</option>
-      </select>	
-      })	
-    </div>
-	);
+    <div>
+      <select 
+        className='btn btn-success dropdown-toggle'
+        id='currencySelect'
+        onChange={(event) =>updateCurrency(event)}> Currency {currency}
+          <option value="£">Currency £ Pound</option>
+          <option value="$">$ Dollar</option>
+          <option value="€">€ Euro</option>
+          <option value="₹">₹ Rupee</option>
+      </select>
+      <br></br>
+      {/* I used the below to test the value change when the dropdown selection is changed */}
+      The input value has changed. The new value is: {currency}
+      
+      </div>
+  );
 };
 
 export default Currency;

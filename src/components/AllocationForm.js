@@ -7,7 +7,7 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
-
+    
     const submitEvent = () => {
 
             if(cost > remaining) {
@@ -31,6 +31,7 @@ const AllocationForm = (props) => {
                     payload: expense,
                 });
             }
+        
     };
 
     return (
@@ -63,6 +64,7 @@ const AllocationForm = (props) => {
                         required='required'
                         type='number'
                         id='cost'
+                        step="5"
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
