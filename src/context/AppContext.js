@@ -120,4 +120,3 @@ export const AppProvider = (props) => {
 		</AppContext.Provider>
 	);
 };
-
