@@ -31,6 +31,33 @@ const Budget = () => {
         />
       </label>
     </div>
+
+/*
+// Added from github repo https://github.com/vodenica/practice-ejtos-react_budget_app
+
+return ...
+
+<div
+      className="alert alert-secondary"
+      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+    >
+      <div>
+        <label htmlFor="budget"> Budget:</label>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <span>{currency}</span>
+        <input
+          required="required"
+          type="number"
+          id="budget"
+          value={budget}
+          step="10"
+          onChange={onChangeBudgetHandler}
+        ></input>
+      </div>
+    </div>
+*/
+
   );
 };
 
